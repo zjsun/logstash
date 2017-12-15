@@ -41,6 +41,7 @@ Gemfile
 .idea
 logs
 .lock
+.rakeTasks
 NOTICE.TXT
 qa/integration/services/installed/
 .gradle
