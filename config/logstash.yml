@@ -29,16 +29,16 @@
 #
 # ------------ Pipeline Settings --------------
 #
+# The ID of the pipeline.
+#
+# pipeline.id: main
+#
 # Set the number of workers that will, in parallel, execute the filters+outputs
 # stage of the pipeline.
 #
 # This defaults to the number of the host's CPU cores.
 #
 # pipeline.workers: 2
-#
-# How many workers should be used per output plugin instance
-#
-# pipeline.output.workers: 1
 #
 # How many events to retrieve from inputs before sending to filters+workers
 #

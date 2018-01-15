@@ -62,7 +62,7 @@ config and the logs directories so that you do not delete important data later o
   | `path.plugins`
 
 | data
-  | Data files used by logstash and its plugins for any persistent needs.
+  | Data files used by logstash and its plugins for any persistence needs.
   | `{extract.path}/data`
   | `path.data`
 
@@ -95,8 +95,8 @@ locations for the system:
 
 | conf
   | Logstash pipeline configuration files
-  | `/etc/logstash/conf.d`
-  | `path.config`
+  | `/etc/logstash/conf.d/*.conf`
+  | See `/etc/logstash/pipelines.yml`
 
 | logs
   | Log files
@@ -109,7 +109,7 @@ locations for the system:
   | `path.plugins`
 
 | data
-  | Data files used by logstash and its plugins for any persistent needs.
+  | Data files used by logstash and its plugins for any persistence needs.
   | `/var/lib/logstash`
   | `path.data`
 
@@ -149,6 +149,11 @@ similar directory layout.
   | Local, non Ruby-Gem plugin files. Each plugin is contained in a subdirectory. Recommended for development only.
   | `/usr/share/logstash/plugins`
   | `path.plugins`
+
+| data
+  | Data files used by logstash and its plugins for any persistence needs.
+  | `/usr/share/logstash/data`
+  | `path.data`
 
 |=======================================================================
 

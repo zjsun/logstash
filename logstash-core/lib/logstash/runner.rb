@@ -85,6 +85,11 @@ class LogStash::Runner < Clamp::StrictCommand
     :attribute_name => "cloud.auth"
 
   # Pipeline settings
+  option ["--pipeline.id"], "ID",
+    I18n.t("logstash.runner.flag.pipeline-id"),
+    :attribute_name => "pipeline.id",
+    :default => LogStash::SETTINGS.get_default("pipeline.id")
+
   option ["-w", "--pipeline.workers"], "COUNT",
     I18n.t("logstash.runner.flag.pipeline-workers"),
     :attribute_name => "pipeline.workers",
@@ -231,7 +236,7 @@ class LogStash::Runner < Clamp::StrictCommand
 
       # Windows safe way to produce a file: URI.
       file_schema = "file://" + (LogStash::Environment.windows? ? "/" : "")
-      LogStash::Logging::Logger::reconfigure(URI.join(file_schema + File.absolute_path(log4j_config_location)).to_s)
+      LogStash::Logging::Logger::reconfigure(URI.encode(file_schema + File.absolute_path(log4j_config_location)))
     end
     # override log level that may have been introduced from a custom log4j config file
     LogStash::Logging::Logger::configure_logging(setting("log.level"))
